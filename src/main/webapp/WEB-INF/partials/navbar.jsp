@@ -7,6 +7,11 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/login">Login</a></li>
             <li><a href="/logout">Logout</a></li>
+            <li><form action="/ads/search" method="get">
+                <input type="text" name="userSearch" placeholder="Search Ads"><br>
+                <input type="submit" value="Search">
+            </form>
+            </li>
         </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

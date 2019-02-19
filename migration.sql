@@ -22,7 +22,6 @@ CREATE TABLE ads (
 );
 
 
-
 CREATE TABLE categories(
  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
  category_name VARCHAR(100) NOT NULL,
@@ -41,4 +40,5 @@ ADD UNIQUE (username);
 
 ALTER TABLE users
 ADD UNIQUE (email);
+
 
