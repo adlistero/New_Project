@@ -14,5 +14,7 @@ public interface Ads {
 
     List<Ad> search(String userSearch);
 
+    List <Ad> userAds(int user_id);
+
 
 }
