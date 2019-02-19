@@ -12,5 +12,7 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
 
+    <div> ${sessionScope.user.ad}</div>
+
 </body>
 </html>
