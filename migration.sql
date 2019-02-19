@@ -35,3 +35,10 @@ CREATE TABLE ads_categories(
   FOREIGN KEY (category_id) REFERENCES categories (id),
  FOREIGN KEY (ad_id) REFERENCES ads(id)
 );
+
+ALTER TABLE users
+ADD UNIQUE (username);
+
+ALTER TABLE users
+ADD UNIQUE (email);
+
