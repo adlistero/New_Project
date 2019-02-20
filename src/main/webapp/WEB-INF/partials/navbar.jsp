@@ -5,9 +5,10 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Adlister</a>
+            <a class="navbar-brand" href="/ads">
+                Adlister</a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-left">
             <c:choose>
                 <c:when test="${sessionScope.user != null}">
                     <a id="logout-cust" class="anchorHover badge badge-primary" href="/logout">
@@ -16,9 +17,15 @@
                     <a class="anchorHover badge badge-primary" id="profile-cust" href="/profile">
                         Profile
                     </a>
+                    <a class="anchorHover badge badge-primary" id="Eprofile-customer" href="/editProfile">
+                        Edit Profile
+                    </a>
+                    <a class="anchorHover badge badge-primary" id="create-ad" href="/ads/create">
+                        Create New Ad
+                    </a>
                 </c:when>
                 <c:otherwise>
-                    <div class="navbar-center">
+                    <div class="navbar-left">
                         <a class="anchorHover badge badge-primary" id="reg-cust" href="register">
                             Register
                         </a>
