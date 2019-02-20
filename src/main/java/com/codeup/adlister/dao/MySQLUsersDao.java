@@ -50,6 +50,22 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error creating new user", e);
         }
     }
+    @Override
+    public User editProfile(User user) {
+        String query = "UPDATE users SET username = ?, email = ?, password = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
+            stmt.setLong(4, user.getId());
+            stmt.executeUpdate();
+            User newUser = findByUsername(user.getUsername());
+            return newUser;
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating profile", e);
+        }
+    }
 
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
@@ -61,6 +77,17 @@ public class MySQLUsersDao implements Users {
             rs.getString("email"),
             rs.getString("password")
         );
+    }
+    public User findById(Long id){
+        String query = "SELECT * FROM users where id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by id", e);
+        }
+
     }
 
 }

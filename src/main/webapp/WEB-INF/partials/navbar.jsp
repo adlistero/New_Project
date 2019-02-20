@@ -13,6 +13,9 @@
                     <a id="logout-cust" class="anchorHover badge badge-primary" href="/logout">
                         Logout
                     </a>
+                    <a class="anchorHover badge badge-primary" id="profile-cust" href="/profile">
+                        Profile
+                    </a>
                 </c:when>
                 <c:otherwise>
                     <div class="navbar-center">
@@ -21,6 +24,9 @@
                         </a>
                         <a class="anchorHover badge badge-primary" id="login-cust" href="login">
                             Login
+                        </a>
+                        <a class="anchorHover badge badge-primary" id="profile-cust" href="/profile">
+                            Profile
                         </a>
                     </div>
                 </c:otherwise>
