@@ -18,6 +18,7 @@
                     <a href="/ad?id=${ad.id}"><h2>${ad.title}</h2></a>
                     <p>${ad.description}</p>
                     <a href="/ads/delete?id=${ad.id}">Delete Ad</a>
+                    <a href="/ads/edit?id=${ad.id}">Edit Ad</a>
 
                 </div>
 

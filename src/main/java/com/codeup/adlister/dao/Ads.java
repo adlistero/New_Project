@@ -10,7 +10,7 @@ public interface Ads {
 
     void deleteAd(Long id);
 
-//    Long editAd(Ad ad);
+    void editAd(Ad ad);
 
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
