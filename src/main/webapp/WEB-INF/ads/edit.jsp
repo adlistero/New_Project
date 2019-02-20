@@ -11,7 +11,7 @@
         <h1>Edit Ad</h1>
         <form action="/ads/edit" method="post">
 
-            <input type="hidden" name=id value="${ad.id}">
+            <input type="hidden" name="adid" value="${editAd}">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
