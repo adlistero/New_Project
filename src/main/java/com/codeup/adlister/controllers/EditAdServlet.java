@@ -13,17 +13,18 @@ import java.io.IOException;
 @WebServlet(name = "controllers.EditAdServlet", urlPatterns = "/ads/edit")
 public class EditAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.setAttribute("editAd",request.getParameter("id"));
         request.getRequestDispatcher("/WEB-INF/ads/edit.jsp")
                 .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        User user = (User) request.getSession().getAttribute("user");
-        Long id = Long.parseLong(request.getParameter("id"));
+        User user = (User) request.getSession().getAttribute("user");
+        Long id = Long.parseLong(request.getParameter("adid"));
+        System.out.println();
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-        Ad ad = new Ad(id, title, description);
+        Ad ad = new Ad(id, user.getId(), title, description);
         DaoFactory.getAdsDao().editAd(ad);
        response.sendRedirect("/profile");
 
