@@ -3,9 +3,6 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +23,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    //Method for showing all ads
     @Override
     public List<Ad> all() {
         PreparedStatement stmt = null;
@@ -37,6 +35,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
+
+    //Method for showing all ads created by the user in their profile
     @Override
     public List<Ad> userAds(int user_id) {
         PreparedStatement stmt = null;
@@ -49,6 +49,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving your ads.", e);
         }
     }
+
+    //Method for searching database for ads with titles containing search term
     @Override
     public List<Ad> search(String userSearch) {
         PreparedStatement stmt = null;
@@ -62,6 +64,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
+
+    //Method for showing information of a single ad
     @Override
     public Ad one(Long id) {
         PreparedStatement stmt = null;
@@ -76,6 +80,39 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    //Method for deleting ad
+    @Override
+    public void deleteAd(Long id) {
+        PreparedStatement stmt = null;
+        try{
+            stmt = connection.prepareStatement("DELETE FROM ads WHERE id = ?");
+            stmt.setLong(1, id);
+           stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad", e);
+        }
+
+    }
+//
+//    @Override
+//    public Long editAd(Ad ad) {
+//        try{
+//           String editQuery = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
+//            PreparedStatement stmt = connection.prepareStatement(editQuery);
+//
+//            stmt.setString(1, ad.getTitle());
+//            stmt.setString(2,ad.getDescription());
+//            stmt.executeUpdate();
+//
+//           return null;
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error editing ad", e);
+//        }
+//
+//    }
+
+    //Method for creating new ad and inserting into database with user_id
     @Override
     public Long insert(Ad ad) {
         try {

@@ -7,6 +7,11 @@ import java.util.List;
 public interface Ads {
     // get a list of all the ads
     List<Ad> all();
+
+    void deleteAd(Long id);
+
+//    Long editAd(Ad ad);
+
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
 
@@ -15,6 +20,8 @@ public interface Ads {
     List<Ad> search(String userSearch);
 
     List <Ad> userAds(int user_id);
+
+
 
 
 }
