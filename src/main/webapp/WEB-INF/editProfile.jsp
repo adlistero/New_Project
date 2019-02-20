@@ -17,7 +17,9 @@
 <div class="container">
     <h1>Edit Ad</h1>
     <form action="/editProfile" method="post">
+        Username
         <input type="text" name="username" value="${user.username}">
+        Email
         <input type="email" name="email" value="${user.email}">
         <input type="hidden" name="id" value="${user.id}">
 
