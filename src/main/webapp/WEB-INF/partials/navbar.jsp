@@ -26,10 +26,10 @@
                 </c:when>
                 <c:otherwise>
                     <div class="navbar-left">
-                        <a class="anchorHover badge badge-primary" id="reg-cust" href="register">
+                        <a class="anchorHover badge badge-primary" id="reg-cust" href="/register">
                             Register
                         </a>
-                        <a class="anchorHover badge badge-primary" id="login-cust" href="login">
+                        <a class="anchorHover badge badge-primary" id="login-cust" href="/login">
                             Login
                         </a>
                         <a class="anchorHover badge badge-primary" id="profile-cust" href="/profile">

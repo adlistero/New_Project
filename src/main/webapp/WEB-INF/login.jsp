@@ -17,6 +17,8 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
+                <input type="hidden" name="from" value="${pageContext.request.getHeader("referer")}">
+
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
